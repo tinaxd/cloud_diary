@@ -1,0 +1,25 @@
+% layout 'default';
+% title 'Diary create';
+<h2>日記検索</h2>
+<div>
+  <form action="<%= url_for('diary_search_form') %>" method="GET">
+    <div>
+      <label for="date">日付</label>
+      <input type="date" name="date" id="dateInput">
+    </div>
+    <div>
+      <input type="submit" value="検索">
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  const dateInput = document.getElementById('dateInput');
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  dateInput.value = `${year}-${month}-${day}`;
+});
+</script>

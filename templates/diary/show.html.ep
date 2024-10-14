@@ -1,0 +1,21 @@
+% layout 'default';
+% title 'Diary view';
+<h2>日記</h2>
+<%= link_to '一覧へ', url_for('/diary') %>
+<% if (defined $id) { %>
+<%= link_to '編集', url_for('diary_edit', id => $id) %>
+<%= link_to '削除', url_for('diary_delete_confirm', id => $id) %>
+<% } %>
+<div>
+  <h3><%= $title %></h3>
+  <div>5段階評価: <%= $rating %></div>
+  <div class="content">
+    <%= $content %>
+  </div>
+</div>
+
+<style>
+.content {
+    white-space: pre-line;
+}
+</style>

@@ -1,0 +1,8 @@
+% layout 'default';
+% title 'Diary create';
+<h2>日記削除</h2>
+<p><%= $date %> の日記を削除しますか？</p>
+<form action="<%= url_for('diary_delete', id => $id) %>" method="POST">
+    <input type="submit" value="削除">
+</form>
+<a href="<%= url_for('diary_show', id => $id) %>">キャンセル</a>

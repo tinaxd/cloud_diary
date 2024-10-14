@@ -1,0 +1,25 @@
+% layout 'default';
+% title 'Diary list';
+
+% if ($mode eq 'list') {
+<h2>日記一覧</h2>
+% } elsif ($mode eq 'search') {
+<h2>日記検索</h2>
+% }
+
+% if ($mode eq 'search') {
+<%= link_to '一覧へ', url_for('/diary') %>
+% }
+<%= link_to '新規作成', url_for('/diary/new') %>
+<%= link_to '検索', url_for('/diary/search') %>
+<p>
+  % if (!@$diaries) {
+  <p>日記がありません</p>
+  % }
+  <% for my $diary (@$diaries) { %>
+  <div>
+    <a href="<%= url_for 'diary_show', id => $diary->{id} %>"><h3><%= $diary->{title} %></h3></a>
+    <p><%= $diary->{content} %></p>
+  </div>
+  <% } %>
+</p>
