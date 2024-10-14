@@ -2,7 +2,7 @@
 % title 'Diary create';
 <h2>日記作成</h2>
 <div>
-  <form action="<%= url_for %>" method="POST">
+  <form action="<%= url_for('diary_post') %>" method="POST">
     <div>
       <label for="date">日付</label>
       <input type="date" name="date" id="dateInput" value="<%= $date %>" readonly>

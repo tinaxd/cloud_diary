@@ -17,7 +17,7 @@ sub startup ($self) {
   $r->get('/')->to('Example#welcome');
   $r->get('/diary')->to('Diary#list')->name('diary_list');
   $r->get('/diary/new')->to('Diary#create')->name('diary_create');
-  $r->post('/diary/new')->to('Diary#post');
+  $r->post('/diary/new')->to('Diary#post')->name('diary_post');
   $r->get('/diary/search')->to('Diary#search_form')->name('diary_search_form');
   $r->get('/diary/:id')->to('Diary#show')->name('diary_show');
   $r->get('/diary/:id/edit')->to('Diary#edit')->name('diary_edit');
